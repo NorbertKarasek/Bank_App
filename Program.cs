@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Bank_App.Frontend;
+using Bank_App.Backend;
+using System;
+
+
+Data.GetAccounts();
+Display.DisplayClients();
