@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bank_App.Backend
 {
-    internal class Account
+    public class Account
     {
         public int Id {  get; set; }
         public string AccountNumber {  get; set; }
@@ -24,10 +24,9 @@ namespace Bank_App.Backend
             accounts.Add(this);
         }
 
-        public Account GetUser(string AccNr)
+        public static Account GetUserByAccountNr(string accountNumber)
         {
-            var user = accounts.FirstOrDefault(x => x.AccountNumber == AccNr);
-            return user;
+            return accounts.FirstOrDefault(account => account.AccountNumber == accountNumber);
         }
     }
 }

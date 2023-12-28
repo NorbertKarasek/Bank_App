@@ -4,4 +4,6 @@ using System;
 
 
 Data.GetAccounts();
+Display.DisplayWelcome();
+Bank.StartMenu();
 Display.DisplayClients();
