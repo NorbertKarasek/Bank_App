@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Metadata;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -18,6 +19,14 @@ namespace Bank_App.Frontend
             Console.WriteLine("3. Zakończ");
         }
 
+        public static void LoggedInMenu(Account user)
+        {
+            Console.WriteLine($"Zalogowano na {user.UserName}");
+            Console.WriteLine("1. Stan Konta");
+            Console.WriteLine("2. Zrób przelew");
+            Console.WriteLine("3. Wyloguj się");
+        }
+
         public static void DisplayClients()
         {
             Console.WriteLine("ID | USER NAME | ACCOUNT NUMBER");
@@ -27,23 +36,35 @@ namespace Bank_App.Frontend
             }
         }
 
-        public void DisplayBalance(Account user)
+        public static void DisplayBalance(Account user)
         {
             Console.WriteLine($"Stan konta to {user.Balance}");
         }
 
-        public static string LogInScreen()
+        public static void LogInScreen()
         {
             Console.Write("\nAby się zalogować podaj nr konta: ");
-            string AccNr = Console.ReadLine();
-            return AccNr;
         }
 
-        public static void SuccesfulLogIn(Account user)
+        public static void GetRecipient()
         {
-            Console.WriteLine($"Witamy {user.UserName}");
+            Console.WriteLine("Podaj nr konta odbiorcy: ");
         }
 
+        public static void GetAmount()
+        {
+            Console.WriteLine("Podaj kwotę przelewu: ");
+        }
+        
+        public static void InsufficientFunds()
+        {
+            Console.WriteLine("Nie masz wystarczających środków");
+        }
+
+        public static void SuccesfullTransfer(Account sender, Account recipient)
+        {
+            Console.WriteLine($"Przelew udany. Stany kont: {sender.UserName}: {sender.Balance}, {recipient.UserName}: {recipient.Balance}");
+        }
         public static void WrongChoice()
         {
             Console.WriteLine("Niepoprawny wybór. Spróbuj ponownie.");

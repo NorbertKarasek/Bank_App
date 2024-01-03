@@ -34,10 +34,11 @@ namespace Bank_App.Backend
 
         public static Account LoggingIn()
         {
-            var LoggedUser = Account.GetUserByAccountNr(Display.LogInScreen());
+            Display.LogInScreen();
+            var LoggedUser = Account.GetUserByAccountNr(Console.ReadLine());
             if (LoggedUser != null && Account.accounts.Contains(LoggedUser))
             {
-                Display.SuccesfulLogIn(LoggedUser);
+                Operations.LoggedInOperations(LoggedUser);
                 return LoggedUser;
             }
             else
