@@ -12,32 +12,46 @@ namespace Bank_App.Frontend
 {
     internal class Display
     {
-        public static void DisplayWelcome()
+        public static void DisplayWelcome() 
+        {
+            Console.WriteLine("**** Witamy w banku ****");
+            Console.WriteLine("");
+            Console.WriteLine("Zachęcamy do wydawania siana\n\n");
+        }
+        public static void DisplayMenu()
         {
             Console.WriteLine("1. Zaloguj się");
             Console.WriteLine("2. Lista klientów");
             Console.WriteLine("3. Zakończ");
         }
 
+        public static void DisplayLoggedUser(Account user)
+        {
+            Console.Clear();
+            Console.WriteLine($"Zalogowano na {user.UserName}");
+        }
         public static void LoggedInMenu(Account user)
         {
-            Console.WriteLine($"Zalogowano na {user.UserName}");
-            Console.WriteLine("1. Stan Konta");
+
+            Console.WriteLine("\n1. Stan Konta");
             Console.WriteLine("2. Zrób przelew");
-            Console.WriteLine("3. Wyloguj się");
+            Console.WriteLine("3. Wyloguj się\n");
         }
 
         public static void DisplayClients()
         {
+            Console.Clear();
             Console.WriteLine("ID | USER NAME | ACCOUNT NUMBER");
             foreach (var client in Account.accounts)
             {
                 Console.WriteLine($"{client.Id} | {client.UserName} | {client.AccountNumber}");
             }
+            Console.WriteLine("");
         }
 
         public static void DisplayBalance(Account user)
         {
+            Console.Clear();
             Console.WriteLine($"Stan konta to {user.Balance}");
         }
 
@@ -63,6 +77,7 @@ namespace Bank_App.Frontend
 
         public static void SuccesfullTransfer(Account sender, Account recipient)
         {
+            Console.Clear();
             Console.WriteLine($"Przelew udany. Stany kont: {sender.UserName}: {sender.Balance}, {recipient.UserName}: {recipient.Balance}");
         }
         public static void WrongChoice()
@@ -70,5 +85,10 @@ namespace Bank_App.Frontend
             Console.WriteLine("Niepoprawny wybór. Spróbuj ponownie.");
         }
 
+        public static void LogOff()
+        {
+            Console.Clear();
+            Console.WriteLine("Pomyślnie wylogowano");
+        }
     }
 }

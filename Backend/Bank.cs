@@ -13,6 +13,7 @@ namespace Bank_App.Backend
         {
             while (true)
             {
+                Display.DisplayMenu();
                 string choice = Console.ReadLine();
                 switch (choice)
                 {

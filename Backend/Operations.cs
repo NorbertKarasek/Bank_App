@@ -13,6 +13,7 @@ namespace Bank_App.Backend
     {
         public static void LoggedInOperations(Account user)
         {
+            Display.DisplayLoggedUser(user);
             while (true)
             {
                 Display.LoggedInMenu(user);
@@ -26,12 +27,14 @@ namespace Bank_App.Backend
                         MakeTransfer(user, null);
                         break;
                     case "3":
+                        Console.Clear();
                         return;
                     default:
                         Display.WrongChoice();
                         break;
                 }
             }
+            Bank.StartMenu();
         }
         public static void MakeTransfer(Account sender, Account recipient)
         {
