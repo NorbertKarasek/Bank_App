@@ -14,26 +14,33 @@ namespace Bank_App.Frontend
     {
         public static void DisplayWelcome() 
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("**** Witamy w banku ****");
             Console.WriteLine("");
             Console.WriteLine("Zachęcamy do wydawania siana\n\n");
         }
         public static void DisplayMenu()
         {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("WYBIERZ OPCJĘ:");
             Console.WriteLine("1. Zaloguj się");
             Console.WriteLine("2. Lista klientów");
-            Console.WriteLine("3. Zakończ");
+            Console.WriteLine("3. Zakończ\n");
         }
 
         public static void DisplayLoggedUser(Account user)
         {
             Console.Clear();
-            Console.WriteLine($"Zalogowano na {user.UserName}");
+            Console.ForegroundColor= ConsoleColor.Green;
+            Console.WriteLine("* Pomyślnie zalogowano *");
+            Console.ForegroundColor= ConsoleColor.White;
+            Console.WriteLine($"Witamy {user.UserName}");
+            Console.WriteLine($"Numer konta: {user.AccountNumber}");
         }
         public static void LoggedInMenu(Account user)
         {
-
-            Console.WriteLine("\n1. Stan Konta");
+            Console.WriteLine("\nWYBIERZ OPCJĘ:");
+            Console.WriteLine("1. Stan Konta");
             Console.WriteLine("2. Zrób przelew");
             Console.WriteLine("3. Wyloguj się\n");
         }
@@ -72,7 +79,9 @@ namespace Bank_App.Frontend
         
         public static void InsufficientFunds()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Nie masz wystarczających środków");
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public static void SuccesfullTransfer(Account sender, Account recipient)
