@@ -11,14 +11,16 @@ namespace Bank_App.Backend
     {
         public int Id {  get; set; }
         public string AccountNumber {  get; set; }
-        public string UserName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public decimal Balance { get; set; }
         public static List<Account> accounts { get; set; } = new List<Account>();
 
-        public Account(int id, string userName, string accountNumber, decimal balance)
+        public Account(int id, string firstname,string lastname, string accountNumber, decimal balance)
         {
             Id = id;
-            UserName = userName;
+            FirstName = firstname;
+            LastName = lastname;
             AccountNumber = accountNumber;
             Balance = balance;
             accounts.Add(this);

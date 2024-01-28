@@ -34,7 +34,7 @@ namespace Bank_App.Frontend
             Console.ForegroundColor= ConsoleColor.Green;
             Console.WriteLine("* Pomyślnie zalogowano *");
             Console.ForegroundColor= ConsoleColor.White;
-            Console.WriteLine($"Witamy {user.UserName}");
+            Console.WriteLine($"Witamy {user.FirstName} {user.LastName}");
             Console.WriteLine($"Numer konta: {user.AccountNumber}");
         }
         public static void LoggedInMenu(Account user)
@@ -51,7 +51,7 @@ namespace Bank_App.Frontend
             Console.WriteLine("ID | USER NAME | ACCOUNT NUMBER");
             foreach (var client in Account.accounts)
             {
-                Console.WriteLine($"{client.Id} | {client.UserName} | {client.AccountNumber}");
+                Console.WriteLine($"{client.Id} | {client.FirstName} {client.LastName} | {client.AccountNumber}");
             }
             Console.WriteLine("");
         }
@@ -87,7 +87,7 @@ namespace Bank_App.Frontend
         public static void SuccesfullTransfer(Account sender, Account recipient)
         {
             Console.Clear();
-            Console.WriteLine($"Przelew udany. Stany kont: {sender.UserName}: {sender.Balance}, {recipient.UserName}: {recipient.Balance}");
+            Console.WriteLine($"Przelew udany. Stany kont: {sender.FirstName}: {sender.Balance}, {recipient.LastName}: {recipient.Balance}");
         }
         public static void WrongChoice()
         {
