@@ -91,6 +91,7 @@ namespace Bank_App.Frontend
         }
         public static void WrongChoice()
         {
+            Console.Clear();
             Console.WriteLine("Niepoprawny wybór. Spróbuj ponownie.");
         }
 
